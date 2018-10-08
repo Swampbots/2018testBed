@@ -18,6 +18,8 @@ public class GoldPipelineTest extends LinearOpMode {
         telemetry.update();
         sleep(2500);
 
+
+
         // Seems to crash here
         vision = new GoldPipeline();
 
