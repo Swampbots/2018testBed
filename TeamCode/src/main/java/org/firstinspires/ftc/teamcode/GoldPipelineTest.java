@@ -13,11 +13,15 @@ public class GoldPipelineTest extends LinearOpMode {
     @Override
     public void runOpMode() {
 
+        // This telemetry shows up
         telemetry.addLine("Creating pipeline instance...");
         telemetry.update();
         sleep(2500);
 
+        // Seems to crash here
         vision = new GoldPipeline();
+
+        // This telemetry never shows up on the Driver Station
         telemetry.addLine("GoldPipeline instance created.");
         telemetry.update();
         sleep(2500);
