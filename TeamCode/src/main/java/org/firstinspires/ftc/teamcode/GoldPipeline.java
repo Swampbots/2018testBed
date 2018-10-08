@@ -40,16 +40,8 @@ public class GoldPipeline extends OpenCVPipeline {
     @Override
     public Mat processFrame(Mat rgba, Mat gray) {
 
-
-        return rgba; // display the image seen by the camera
-    }
-
-    /**
-     * This is the primary method that runs the entire pipeline and updates the outputs.
-     */
-    public void process(Mat source0) {
         // Step RGB_Threshold0:
-        Mat rgbThresholdInput = source0;
+        Mat rgbThresholdInput = rgba;
         double[] rgbThresholdRed = {167.0, 255.0};
         double[] rgbThresholdGreen = {84.0, 255.0};
         double[] rgbThresholdBlue = {0.0, 130.0};
@@ -62,6 +54,7 @@ public class GoldPipeline extends OpenCVPipeline {
         boolean findBlobsDarkBlobs = false;
         findBlobs(findBlobsInput, findBlobsMinArea, findBlobsCircularity, findBlobsDarkBlobs, findBlobsOutput);
 
+        return rgba; // display the image seen by the camera
     }
 
     /**
