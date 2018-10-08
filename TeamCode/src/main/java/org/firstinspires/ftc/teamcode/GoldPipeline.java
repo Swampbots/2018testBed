@@ -11,6 +11,7 @@ import java.util.Map;
 
 import java.util.HashMap;
 
+import org.corningrobotics.enderbots.endercv.OpenCVPipeline;
 import org.opencv.core.*;
 import org.opencv.core.Core.*;
 import org.opencv.features2d.FeatureDetector;
@@ -25,7 +26,7 @@ import org.opencv.objdetect.*;
  *
  * @author GRIP
  */
-public class GoldPipeline {
+public class GoldPipeline extends OpenCVPipeline {
 
     //Outputs
     private Mat rgbThresholdOutput = new Mat();
@@ -33,6 +34,14 @@ public class GoldPipeline {
 
     static {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
+    }
+
+    // This is called every camera frame.
+    @Override
+    public Mat processFrame(Mat rgba, Mat gray) {
+
+
+        return rgba; // display the image seen by the camera
     }
 
     /**
