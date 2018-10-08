@@ -5,7 +5,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.corningrobotics.enderbots.endercv.CameraViewDisplay;
 
-@Autonomous
+
+@Autonomous(name = "Gold Pipeline Test", group = "Testing")
 public class GoldPipelineTest extends LinearOpMode {
     private GoldPipeline vision;
     @Override
@@ -21,5 +22,7 @@ public class GoldPipelineTest extends LinearOpMode {
 
             // vision.process();
         }
+
+
     }
 }
