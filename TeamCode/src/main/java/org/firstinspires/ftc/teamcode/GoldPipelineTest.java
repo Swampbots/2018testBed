@@ -23,6 +23,6 @@ public class GoldPipelineTest extends LinearOpMode {
             // vision.process();
         }
 
-
+        vision.disable();
     }
 }
