@@ -60,18 +60,18 @@ public class ExampleBlueVisionDemo extends OpMode {
  
     @Override
     public void loop() {
-        // update the settings of the vision pipeline
-        blueVision.setShowCountours(gamepad1.x);
-
-        // get a list of contours from the vision system
-        List<MatOfPoint> contours = blueVision.getContours();
-        for (int i = 0; i < contours.size(); i++) {
-            // get the bounding rectangle of a single contour, we use it to get the x/y center
-            // yes there's a mass center using Imgproc.moments but w/e
-            Rect boundingRect = Imgproc.boundingRect(contours.get(i));
-            telemetry.addData("contour" + Integer.toString(i),
-                    String.format(Locale.getDefault(), "(%d, %d)", (boundingRect.x + boundingRect.width) / 2, (boundingRect.y + boundingRect.height) / 2));
-        }
+//        // update the settings of the vision pipeline
+//        blueVision.setShowCountours(gamepad1.x);
+//
+//        // get a list of contours from the vision system
+//        List<MatOfPoint> contours = blueVision.getContours();
+//        for (int i = 0; i < contours.size(); i++) {
+//            // get the bounding rectangle of a single contour, we use it to get the x/y center
+//            // yes there's a mass center using Imgproc.moments but w/e
+//            Rect boundingRect = Imgproc.boundingRect(contours.get(i));
+//            telemetry.addData("contour" + Integer.toString(i),
+//                    String.format(Locale.getDefault(), "(%d, %d)", (boundingRect.x + boundingRect.width) / 2, (boundingRect.y + boundingRect.height) / 2));
+//        }
     }
 
     public void stop() {
