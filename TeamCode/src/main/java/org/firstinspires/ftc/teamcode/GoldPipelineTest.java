@@ -4,11 +4,13 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.corningrobotics.enderbots.endercv.CameraViewDisplay;
+import org.opencv.core.MatOfKeyPoint;
 
 @Autonomous(name = "Gold Pipeline Test", group = "Testing")
 public class GoldPipelineTest extends LinearOpMode {
 
     private GoldPipeline vision;
+    private MatOfKeyPoint blobs;
 
     @Override
     public void runOpMode() {
@@ -39,7 +41,9 @@ public class GoldPipelineTest extends LinearOpMode {
 
 
         while(opModeIsActive()) {
-
+            blobs = vision.findBlobsOutput();
+            telemetry.addData("Blobs", blobs != null ? blobs.toString() : "None detected");
+            telemetry.update();
         }
 
         vision.disable();
