@@ -42,7 +42,7 @@ public class GoldPipelineTest extends LinearOpMode {
 
         while(opModeIsActive()) {
             blobs = vision.findBlobsOutput();
-            telemetry.addData("Blobs", blobs != null ? blobs.toString() : "None detected");
+            telemetry.addData("Blobs", blobs != null ? blobs.toList() : "None detected");
             telemetry.update();
         }
 
