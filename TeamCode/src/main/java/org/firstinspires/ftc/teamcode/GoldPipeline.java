@@ -32,10 +32,6 @@ public class GoldPipeline extends OpenCVPipeline {
     private Mat rgbThresholdOutput = new Mat();
     private MatOfKeyPoint findBlobsOutput = new MatOfKeyPoint();
 
-    static {
-        System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
-    }
-
     // This is called every camera frame.
     @Override
     public Mat processFrame(Mat rgba, Mat gray) {
