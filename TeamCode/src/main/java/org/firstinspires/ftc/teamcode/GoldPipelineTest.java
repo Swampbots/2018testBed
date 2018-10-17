@@ -14,9 +14,8 @@ public class GoldPipelineTest extends LinearOpMode {
 
     @Override
     public void runOpMode() {
-        
-        vision = new GoldPipeline();
 
+        vision = new GoldPipeline();
         telemetry.addLine("GoldPipeline instance created.");
         telemetry.update();
         sleep(800);
