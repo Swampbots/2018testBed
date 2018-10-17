@@ -27,7 +27,7 @@ import org.opencv.objdetect.*;
 public class GoldContourPipeline extends OpenCVPipeline {
 
     //Outputs
-    private Mat rgbThresholdOutput = new Mat();
+    private Mat hsvThresholdOutput = new Mat();
     private ArrayList<MatOfPoint> findContoursOutput = new ArrayList<MatOfPoint>();
     private ArrayList<MatOfPoint> filterContoursOutput = new ArrayList<MatOfPoint>();
 
@@ -42,15 +42,15 @@ public class GoldContourPipeline extends OpenCVPipeline {
      * This is the primary method that runs the entire pipeline and updates the outputs.
      */
     public Mat processFrame(Mat source0, Mat gray) {
-        // Step RGB_Threshold0:
-        Mat rgbThresholdInput = source0;
-        double[] rgbThresholdRed = {190.33273381294964, 255.0};
-        double[] rgbThresholdGreen = {48.156474820143885, 255.0};
-        double[] rgbThresholdBlue = {0.0, 174.49658703071674};
-        rgbThreshold(rgbThresholdInput, rgbThresholdRed, rgbThresholdGreen, rgbThresholdBlue, rgbThresholdOutput);
+        // Step HSV_Threshold0:
+        Mat hsvThresholdInput = source0;
+        double[] hsvThresholdHue = {0.0, 86.0};
+        double[] hsvThresholdSaturation = {82.0, 255.0};
+        double[] hsvThresholdValue = {45.0, 255.0};
+        hsvThreshold(hsvThresholdInput, hsvThresholdHue, hsvThresholdSaturation, hsvThresholdValue, hsvThresholdOutput);
 
         // Step Find_Contours0:
-        Mat findContoursInput = rgbThresholdOutput;
+        Mat findContoursInput = hsvThresholdOutput;
         boolean findContoursExternalOnly = false;
         findContours(findContoursInput, findContoursExternalOnly, findContoursOutput);
 
@@ -72,18 +72,18 @@ public class GoldContourPipeline extends OpenCVPipeline {
         if (showContours) {
             // this draws the outlines of the blue contours over our original image.
             // they are highlighted in green.
-            Imgproc.drawContours(rgbThresholdOutput, filterContoursOutput, -1, new Scalar(0, 255, 0), 2, 8);
+            Imgproc.drawContours(hsvThresholdOutput, filterContoursOutput, -1, new Scalar(0, 255, 0), 2, 8);
         }
 
-        return rgbThresholdOutput;
+        return hsvThresholdOutput;
     }
 
     /**
      * This method is a generated getter for the output of a RGB_Threshold.
      * @return Mat output from RGB_Threshold.
      */
-    public Mat rgbThresholdOutput() {
-        return rgbThresholdOutput;
+    public Mat hsvThresholdOutput() {
+        return hsvThresholdOutput;
     }
 
     /**
@@ -104,18 +104,19 @@ public class GoldContourPipeline extends OpenCVPipeline {
 
 
     /**
-     * Segment an image based on color ranges.
-     * @param input The image on which to perform the RGB threshold.
-     * @param red The min and max red.
-     * @param green The min and max green.
-     * @param blue The min and max blue.
+     * Segment an image based on hue, saturation, and value ranges.
+     *
+     * @param input The image on which to perform the HSL threshold.
+     * @param hue The min and max hue
+     * @param sat The min and max saturation
+     * @param val The min and max value
      * @param output The image in which to store the output.
      */
-    private void rgbThreshold(Mat input, double[] red, double[] green, double[] blue,
+    private void hsvThreshold(Mat input, double[] hue, double[] sat, double[] val,
                               Mat out) {
-        Imgproc.cvtColor(input, out, Imgproc.COLOR_BGR2RGB);
-        Core.inRange(out, new Scalar(red[0], green[0], blue[0]),
-                new Scalar(red[1], green[1], blue[1]), out);
+        Imgproc.cvtColor(input, out, Imgproc.COLOR_BGR2HSV);
+        Core.inRange(out, new Scalar(hue[0], sat[0], val[0]),
+                new Scalar(hue[1], sat[1], val[1]), out);
     }
 
     /**
