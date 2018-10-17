@@ -28,5 +28,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
         telemetry.addLine("Press play to start.");
         telemetry.update();
         sleep(2500);
+
+        waitForStart();
+
+        while(opModeIsActive()){}
+
+        vision.disable();
     }
 }
