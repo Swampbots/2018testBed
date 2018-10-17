@@ -31,6 +31,13 @@ public class GoldContourPipeline extends OpenCVPipeline {
     private ArrayList<MatOfPoint> findContoursOutput = new ArrayList<MatOfPoint>();
     private ArrayList<MatOfPoint> filterContoursOutput = new ArrayList<MatOfPoint>();
 
+    boolean showContours = false;
+
+    public synchronized void setShowCountours(boolean enabled) {
+        showContours = enabled;
+    }
+
+
     /**
      * This is the primary method that runs the entire pipeline and updates the outputs.
      */
@@ -61,6 +68,12 @@ public class GoldContourPipeline extends OpenCVPipeline {
         double filterContoursMinRatio = 0;
         double filterContoursMaxRatio = 1000;
         filterContours(filterContoursContours, filterContoursMinArea, filterContoursMinPerimeter, filterContoursMinWidth, filterContoursMaxWidth, filterContoursMinHeight, filterContoursMaxHeight, filterContoursSolidity, filterContoursMaxVertices, filterContoursMinVertices, filterContoursMinRatio, filterContoursMaxRatio, filterContoursOutput);
+
+        if (showContours) {
+            // this draws the outlines of the blue contours over our original image.
+            // they are highlighted in green.
+            Imgproc.drawContours(source0, filterContoursOutput, -1, new Scalar(0, 255, 0), 2, 8);
+        }
 
         return source0;
     }
