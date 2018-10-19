@@ -44,9 +44,9 @@ public class GoldContourPipeline extends OpenCVPipeline {
     public Mat processFrame(Mat source0, Mat gray) {
         // Step HSV_Threshold0:
         Mat hsvThresholdInput = source0;
-        double[] hsvThresholdHue = {0.0, 86.0};
-        double[] hsvThresholdSaturation = {82.0, 255.0};
-        double[] hsvThresholdValue = {45.0, 255.0};
+        double[] hsvThresholdHue = {0.0, 80.0};
+        double[] hsvThresholdSaturation = {60.0, 255.0};
+        double[] hsvThresholdValue = {60.0, 255.0};
         hsvThreshold(hsvThresholdInput, hsvThresholdHue, hsvThresholdSaturation, hsvThresholdValue, hsvThresholdOutput);
 
         // Step Find_Contours0:
