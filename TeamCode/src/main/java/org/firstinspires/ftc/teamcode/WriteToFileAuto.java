@@ -6,6 +6,7 @@ import java.io.*;
 
 import java.io.FileWriter;
 
+@Autonomous(name = "File Write Test", group = "Testing")
 public class WriteToFileAuto extends LinearOpMode {
 
     public void runOpMode() {
