@@ -6,12 +6,14 @@ import java.io.*;
 
 import java.io.FileWriter;
 
-@Autonomous(name = "File Write Test", group = "Testing")
+@Autonomous(name = "Write to File", group = "File Testing")
 public class WriteToFileAuto extends LinearOpMode {
 
     public void runOpMode() {
 
         waitForStart();
+
+        boolean finished = false;
 
         try {
             Writer writer = new FileWriter("Test_File");
@@ -21,11 +23,17 @@ public class WriteToFileAuto extends LinearOpMode {
             writer.flush();
 
             writer.close();
+
+            finished = true;
         } catch (IOException e) {
             e.printStackTrace();
+
+            finished = false;
         }
 
         while(opModeIsActive()) {
+            telemetry.addData("Finished", finished);
+            telemetry.update();
 
         }
 
