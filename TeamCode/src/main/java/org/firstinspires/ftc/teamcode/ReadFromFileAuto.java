@@ -14,13 +14,13 @@ public class ReadFromFileAuto extends LinearOpMode {
 
     public void runOpMode() {
 
-        String str = "";
+        String str;
 
         waitForStart();
 
         try {
             Reader reader = new FileReader("Test_File");
-            str.concat(String.valueOf((char)reader.read()));
+            str = String.valueOf((char)reader.read());
 
 
             reader.close();
@@ -28,6 +28,7 @@ public class ReadFromFileAuto extends LinearOpMode {
             if (e.equals(new FileNotFoundException())) str = "File not found.";
             else if (e.equals(new IOException())) str = "I/O Exception thrown.";
             else str = "Error";
+
             e.printStackTrace();
         }
 
