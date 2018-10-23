@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode;
 
 import android.support.annotation.NonNull;
 
+import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import java.io.BufferedReader;
@@ -10,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 
+@Autonomous(name = "Read from File", group = "File Testing")
 public class ReadFromFileAuto extends LinearOpMode {
 
     public void runOpMode() {
