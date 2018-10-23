@@ -14,7 +14,7 @@ public class WriteToFileAuto extends LinearOpMode {
         waitForStart();
 
         try {
-            FileWriter writer = new FileWriter("Test_File");
+            Writer writer = new FileWriter("Test_File");
 
             writer.append("Hello");
             writer.append("\nThis thing working?");
