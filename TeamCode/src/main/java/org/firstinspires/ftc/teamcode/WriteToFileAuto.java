@@ -1,11 +1,13 @@
 package org.firstinspires.ftc.teamcode;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import java.io.*;
 
 import java.io.FileWriter;
 
+@Disabled
 @Autonomous(name = "Write to File", group = "File Testing")
 public class WriteToFileAuto extends LinearOpMode {
 
