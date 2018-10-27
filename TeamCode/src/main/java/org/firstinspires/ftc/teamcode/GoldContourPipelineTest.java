@@ -85,6 +85,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 Hue max: gp1.y,    gp1.a
 
              */
+
             // Modify threshold variables if the buttons are pressed and thresholds are within outer limits 0 & 255
 
             // HUE MINIMUM
@@ -99,14 +100,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 else                        hsvHue[0] = hsvHue[1];
                 dpUpSnapshot = getRuntime();
             }
-
-//
-//            // HUE MAXIMUM
-//            if(hsvHue[1] <= HSV_MAX && gamepad1.a)  hsvHue[1] -= 1.0;
-//            else hsvHue[1] = HSV_MAX;
-//
-//            if(hsvHue[1] >= hsvHue[0] && gamepad1.y)  hsvHue[1] += 1.0;
-//            else hsvHue[1] = hsvHue[0];
+            
 
             //------------------------------------------
             // END HSV THRESHOLD CONTROLS
