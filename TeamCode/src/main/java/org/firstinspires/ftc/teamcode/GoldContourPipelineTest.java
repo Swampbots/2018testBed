@@ -35,6 +35,16 @@ public class GoldContourPipelineTest extends LinearOpMode {
     private double dpDownRuntimeDif = 0.0;
     private boolean dpDownReady = false;
 
+    // DPAD LEFT
+    private double dpLeftSnapshot = 0.0;
+    private double dpLeftRuntimeDif = 0.0;
+    private boolean dpLeftReady = false;
+
+    // DPAD RIGHT
+    private double dpRightSnapshot = 0.0;
+    private double dpRightRuntimeDif = 0.0;
+    private boolean dpRightReady = false;
+
     // Y
     private double ySnapshot = 0.0;
     private double yRuntimeDif = 0.0;
@@ -103,6 +113,9 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
                 Hue min: gp1.up,   gp1.down
                 Hue max: gp1.y,    gp1.a
+
+                Sat min: gp1.left, gp1.right
+                Sat max: gp1.x,    gp1.b
 
              */
 
