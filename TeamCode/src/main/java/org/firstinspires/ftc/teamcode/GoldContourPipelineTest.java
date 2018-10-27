@@ -84,7 +84,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 else                        hsvHue[0] = HSV_MIN;
             }
 
-            if(gamepad1.dpad_up) {
+            if(gamepad1.dpad_up && dpUpReady) {
                 if(hsvHue[0] < hsvHue[1])  hsvHue[0] += 1.0;
                 else                        hsvHue[0] = hsvHue[1];
                 dpUpSnapshot = getRuntime();
