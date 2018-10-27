@@ -10,12 +10,22 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
     GoldContourPipeline vision;
 
+
     // HSV Threshold input variables
     private final double HSV_MAX = 255.0;
     private final double HSV_MIN = 0.0;
+
     private double[] hsvHue = new double[]{0.0, 255.0};
     private double[] hsvSat = new double[]{0.0, 255.0};
     private double[] hsvVal = new double[]{0.0, 255.0};
+
+
+    // Cooldown variables
+    private final double COOLDOWN = 0.5; // 0.5 seconds, 500 milliseconds
+
+    private double dpUpSnapshot = 0.0;
+
+    private boolean dpUpReady = false;
 
 
     public void runOpMode() {
@@ -40,7 +50,16 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
         while(opModeIsActive()) {
 
-            
+            // COOLDOWNS
+
+            /*
+             When a button is pressed, set the button's cooldown variable to the current runtime.
+             While the difference between the cooldown variable and the runtime is below some constant: don't allow thresholds to change
+              */
+
+            dpUpReady = (getRuntime() - dpUpSnapshot) > COOLDOWN;
+
+
 
 
 
@@ -67,6 +86,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
             if(gamepad1.dpad_up) {
                 if(hsvHue[0] < hsvHue[1])  hsvHue[0] += 1.0;
                 else                        hsvHue[0] = hsvHue[1];
+                dpUpSnapshot = getRuntime();
             }
 
 //
