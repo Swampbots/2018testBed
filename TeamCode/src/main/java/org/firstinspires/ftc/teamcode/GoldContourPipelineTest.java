@@ -39,6 +39,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()){
+
+            //------------------------------------------
+            // START HSVTHRESHOLD CONTROLS
+            //------------------------------------------
+
             /*
                 CONTROLS: (increase, decrease)
 
@@ -66,7 +71,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
 //
 //            if(hsvHue[1] >= hsvHue[0] && gamepad1.y)  hsvHue[1] += 1.0;
 //            else hsvHue[1] = hsvHue[0];
-            // TODO: must independently check for hue values to be outside of max and min
+
+            //------------------------------------------
+            // END HSVTHRESHOLD CONTROLS
+            //------------------------------------------
 
             // TELEMETRY
             telemetry.addData("Hue min", hsvHue[0]);
