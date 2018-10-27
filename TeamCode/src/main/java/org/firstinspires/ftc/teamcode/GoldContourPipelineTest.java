@@ -121,10 +121,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Hue max", hsvHue[1]);
             telemetry.addLine();
             telemetry.addData("dpUpReady", dpUpReady);
-            telemetry.addData("dpUpRuntime - snapshot", dpUpRuntimeDif);
+            telemetry.addData("dpUpRuntime - snapshot", (int)dpUpRuntimeDif);
             telemetry.addLine();
             telemetry.addData("dpDownReady", dpDownReady);
-            telemetry.addData("dpDownRuntime - snapshot", dpDownRuntimeDif);
+            telemetry.addData("dpDownRuntime - snapshot", (int)dpDownRuntimeDif);
             telemetry.update();
         }
 
