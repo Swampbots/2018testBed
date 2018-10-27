@@ -50,15 +50,15 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             // HUE MINIMUM
             if(gamepad1.dpad_down) {
-                if (hsvHue[0] >= HSV_MIN)   hsvHue[0] -= 1.0;
+                if (hsvHue[0] > HSV_MIN)   hsvHue[0] -= 1.0;
                 else                        hsvHue[0] = HSV_MIN;
             }
 
             if(gamepad1.dpad_up) {
-                if(hsvHue[0] <= hsvHue[1])  hsvHue[0] += 1.0;
+                if(hsvHue[0] < hsvHue[1])  hsvHue[0] += 1.0;
                 else                        hsvHue[0] = hsvHue[1];
             }
-            
+
 //
 //            // HUE MAXIMUM
 //            if(hsvHue[1] <= HSV_MAX && gamepad1.a)  hsvHue[1] -= 1.0;
