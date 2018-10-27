@@ -23,9 +23,15 @@ public class GoldContourPipelineTest extends LinearOpMode {
     // Cooldown variables
     private final double COOLDOWN = 0.125; // 125 milliseconds
 
+    // DPAD UP
     private double dpUpSnapshot = 0.0;
     private double dpUpRuntimeDif = 0.0;
     private boolean dpUpReady = false;
+
+    // DPAD DOWN
+    private double dpDownSnapshot = 0.0;
+    private double dpDownRuntimeDif = 0.0;
+    private boolean dpDownReady = false;
 
 
     public void runOpMode() {
@@ -57,10 +63,13 @@ public class GoldContourPipelineTest extends LinearOpMode {
              While the difference between the cooldown variable and the runtime is below some constant: don't allow thresholds to change
               */
 
+            // DPAD UP
             dpUpRuntimeDif = (getRuntime() - dpUpSnapshot);
             dpUpReady = dpUpRuntimeDif > COOLDOWN;
 
-
+            // DPAD DOWN
+            dpDownRuntimeDif = (getRuntime() - dpDownSnapshot);
+            dpDownReady = dpDownRuntimeDif > COOLDOWN;
 
 
 
@@ -79,9 +88,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // Modify threshold variables if the buttons are pressed and thresholds are within outer limits 0 & 255
 
             // HUE MINIMUM
-            if(gamepad1.dpad_down) {
+            if(gamepad1.dpad_down && dpDownReady) {
                 if (hsvHue[0] > HSV_MIN)   hsvHue[0] -= 1.0;
                 else                        hsvHue[0] = HSV_MIN;
+                dpDownSnapshot = getRuntime();
             }
 
             if(gamepad1.dpad_up && dpUpReady) {
@@ -111,7 +121,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Hue max", hsvHue[1]);
             telemetry.addLine();
             telemetry.addData("dpUpReady", dpUpReady);
-            telemetry.addData("runtime - snapshot", dpUpRuntimeDif);
+            telemetry.addData("dpUpRuntime - snapshot", dpUpRuntimeDif);
+            telemetry.addLine();
+            telemetry.addData("dpDownReady", dpDownReady);
+            telemetry.addData("dpDownRuntime - snapshot", dpDownRuntimeDif);
             telemetry.update();
         }
 
