@@ -31,6 +31,11 @@ public class GoldContourPipeline extends OpenCVPipeline {
     private ArrayList<MatOfPoint> findContoursOutput = new ArrayList<MatOfPoint>();
     private ArrayList<MatOfPoint> filterContoursOutput = new ArrayList<MatOfPoint>();
 
+    // HSV Threshold input variables
+    private double[] hsvHue = new double[2];
+    private double[] hsvSat = new double[2];
+    private double[] hsvVal = new double[2];
+
     boolean showContours = false;
 
     public synchronized void setShowCountours(boolean enabled) {
@@ -44,9 +49,9 @@ public class GoldContourPipeline extends OpenCVPipeline {
     public Mat processFrame(Mat source0, Mat gray) {
         // Step HSV_Threshold0:
         Mat hsvThresholdInput = source0;
-        double[] hsvThresholdHue = {0.0, 80.0};
-        double[] hsvThresholdSaturation = {60.0, 255.0};
-        double[] hsvThresholdValue = {60.0, 255.0};
+        double[] hsvThresholdHue        = hsvHue;
+        double[] hsvThresholdSaturation = hsvSat;
+        double[] hsvThresholdValue      = hsvVal;
         hsvThreshold(hsvThresholdInput, hsvThresholdHue, hsvThresholdSaturation, hsvThresholdValue, hsvThresholdOutput);
 
         // Step Find_Contours0:
@@ -101,6 +106,24 @@ public class GoldContourPipeline extends OpenCVPipeline {
     public ArrayList<MatOfPoint> filterContoursOutput() {
         return filterContoursOutput;
     }
+
+
+
+    //-----------------------------------------------
+    // CALIBRATION SETTERS
+    //-----------------------------------------------
+    public void setHsvHue(double[] hue) {
+        hsvHue = hue;
+    }
+
+    public void setHsvSat(double[] sat) {
+        hsvSat = sat;
+    }
+
+    public void setHsvVal(double[] val) {
+        hsvVal = val;
+    }
+
 
 
     /**
