@@ -39,7 +39,28 @@ public class GoldContourPipelineTest extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()){
-            
+            /*
+                CONTROLS: (increase, decrease)
+
+                Hue min: gp1.up,   gp1.down
+                Hue max: gp1.y,    gp1.a
+
+             */
+            // Modify threshold variables if the buttons are pressed and thresholds are within outer limits 0 & 255
+
+            // HUE MINIMUM
+            if(hsvHue[0] >= HSV_MIN && gamepad1.dpad_down)  hsvHue[0] -= 1.0;
+            else hsvHue[0] = HSV_MIN;
+
+            if(hsvHue[0] <= hsvHue[1] && gamepad1.dpad_up)  hsvHue[0] += 1.0;
+            else hsvHue[0] = hsvHue[1];
+
+            // HUE MAXIMUM
+            if(hsvHue[1] <= HSV_MAX && gamepad1.a)  hsvHue[1] -= 1.0;
+            else hsvHue[1] = HSV_MAX;
+
+            if(hsvHue[1] >= hsvHue[0] && gamepad1.y)  hsvHue[1] += 1.0;
+            else hsvHue[1] = hsvHue[0];
         }
 
         vision.disable();
