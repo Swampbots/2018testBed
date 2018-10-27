@@ -136,6 +136,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
             }
 
 
+
+
+            
+
+
             //------------------------------------------
             // END HSV THRESHOLD CONTROLS
             //------------------------------------------
@@ -150,8 +155,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
             // TELEMETRY
-            telemetry.addData("Hue min", hsvHue[0]);
-            telemetry.addData("Hue max", hsvHue[1]);
+//            telemetry.addData("Hue min", hsvHue[0]);
+//            telemetry.addData("Hue max", hsvHue[1]);
+//            telemetry.addLine();
+            telemetry.addData("Sat min", hsvSat[0]);
+            telemetry.addData("Sat max", hsvSat[1]);
             telemetry.update();
         }
 
