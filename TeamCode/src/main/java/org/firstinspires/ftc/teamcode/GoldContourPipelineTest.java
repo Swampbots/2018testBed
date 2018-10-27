@@ -38,10 +38,15 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
         waitForStart();
 
-        while(opModeIsActive()){
+        while(opModeIsActive()) {
+
+            
+
+
+
 
             //------------------------------------------
-            // START HSVTHRESHOLD CONTROLS
+            // START HSV THRESHOLD CONTROLS
             //------------------------------------------
 
             /*
@@ -75,6 +80,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
             //------------------------------------------
             // END HSVTHRESHOLD CONTROLS
             //------------------------------------------
+
+
+
+
 
             // TELEMETRY
             telemetry.addData("Hue min", hsvHue[0]);
