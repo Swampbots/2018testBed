@@ -119,11 +119,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
             /*
                 CONTROLS: (increase, decrease)
 
-                Hue min: gp1.up,   gp1.down
-                Hue max: gp1.y,    gp1.a
+                Hue min: gp1.up,    gp1.down
+                Hue max: gp1.y,     gp1.a
 
-                Sat min: gp1.left, gp1.right
-                Sat max: gp1.x,    gp1.b
+                Sat min: gp1.right, gp1.left
+                Sat max: gp1.b,     gp1.x
 
              */
 
@@ -160,16 +160,16 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
             // SAT MINIMUM
-            if(gamepad1.dpad_down && dpDownReady) {
+            if(gamepad1.dpad_left && dpLeftReady) {
                 if (hsvHue[0] > HSV_MIN)   hsvHue[0] -= THRESHOLD_STEP;
                 else                        hsvHue[0] = HSV_MIN;
-                dpDownSnapshot = getRuntime();
+                dpLeftSnapshot = getRuntime();
             }
 
-            if(gamepad1.dpad_up && dpUpReady) {
+            if(gamepad1.dpad_right && dpRightReady) {
                 if(hsvHue[0] < hsvHue[1])  hsvHue[0] += THRESHOLD_STEP;
                 else                        hsvHue[0] = hsvHue[1];
-                dpUpSnapshot = getRuntime();
+                dpRightSnapshot = getRuntime();
             }
 
 
