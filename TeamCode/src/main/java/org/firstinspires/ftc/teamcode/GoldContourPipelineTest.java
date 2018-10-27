@@ -37,8 +37,6 @@ public class GoldContourPipelineTest extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()){
-            vision.setShowCountours(true);
-            
         }
 
         vision.disable();
