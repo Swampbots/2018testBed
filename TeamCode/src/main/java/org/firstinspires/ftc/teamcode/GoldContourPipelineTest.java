@@ -24,7 +24,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
     private final double COOLDOWN = 0.5; // 0.5 seconds, 500 milliseconds
 
     private double dpUpSnapshot = 0.0;
-
+    private double dpUpRuntimeDif = 0.0;
     private boolean dpUpReady = false;
 
 
@@ -57,7 +57,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
              While the difference between the cooldown variable and the runtime is below some constant: don't allow thresholds to change
               */
 
-            dpUpReady = (getRuntime() - dpUpSnapshot) > COOLDOWN;
+            dpUpRuntimeDif = (getRuntime() - dpUpSnapshot);
+            dpUpReady = dpUpRuntimeDif > COOLDOWN;
 
 
 
@@ -109,11 +110,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Hue min", hsvHue[0]);
             telemetry.addData("Hue max", hsvHue[1]);
             telemetry.addLine();
-            telemetry.addData("Sat min", hsvSat[0]);
-            telemetry.addData("Sat max", hsvSat[1]);
-            telemetry.addLine();
-            telemetry.addData("Val min", hsvVal[0]);
-            telemetry.addData("Val max", hsvVal[1]);
+            telemetry.addData("dpUpReady", dpUpReady);
+            telemetry.addData("runtime - snapshot", dpUpRuntimeDif);
             telemetry.update();
         }
 
