@@ -12,6 +12,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
     // HSV Threshold input variables
+    private final double THRESHOLD_STEP = 1.0;
+
     private final double HSV_MAX = 255.0;
     private final double HSV_MIN = 0.0;
 
@@ -108,13 +110,13 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             // HUE MINIMUM
             if(gamepad1.dpad_down && dpDownReady) {
-                if (hsvHue[0] > HSV_MIN)   hsvHue[0] -= 1.0;
+                if (hsvHue[0] > HSV_MIN)   hsvHue[0] -= THRESHOLD_STEP;
                 else                        hsvHue[0] = HSV_MIN;
                 dpDownSnapshot = getRuntime();
             }
 
             if(gamepad1.dpad_up && dpUpReady) {
-                if(hsvHue[0] < hsvHue[1])  hsvHue[0] += 1.0;
+                if(hsvHue[0] < hsvHue[1])  hsvHue[0] += THRESHOLD_STEP;
                 else                        hsvHue[0] = hsvHue[1];
                 dpUpSnapshot = getRuntime();
             }
@@ -122,13 +124,13 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             // HUE MAXIMUM
             if(gamepad1.y && yReady) {
-                if (hsvHue[1] < HSV_MAX)   hsvHue[1] += 1.0;
+                if (hsvHue[1] < HSV_MAX)   hsvHue[1] += THRESHOLD_STEP;
                 else                        hsvHue[1] = HSV_MAX;
                 ySnapshot = getRuntime();
             }
 
             if(gamepad1.a && aReady) {
-                if(hsvHue[1] > hsvHue[0])  hsvHue[1] -= 1.0;
+                if(hsvHue[1] > hsvHue[0])  hsvHue[1] -= THRESHOLD_STEP;
                 else                        hsvHue[1] = hsvHue[0];
                 aSnapshot = getRuntime();
             }
