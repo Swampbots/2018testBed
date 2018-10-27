@@ -93,6 +93,14 @@ public class GoldContourPipelineTest extends LinearOpMode {
             dpDownRuntimeDif = (getRuntime() - dpDownSnapshot);
             dpDownReady = dpDownRuntimeDif > COOLDOWN;
 
+            // DPAD LEFT
+            dpLeftRuntimeDif = (getRuntime() - dpLeftSnapshot);
+            dpLeftReady = dpLeftRuntimeDif > COOLDOWN;
+
+            // DPAD RIGHT
+            dpRightRuntimeDif = (getRuntime() - dpRightSnapshot);
+            dpRightReady = dpRightRuntimeDif > COOLDOWN;
+
             // Y
             yRuntimeDif = (getRuntime() - ySnapshot);
             yReady = yRuntimeDif > COOLDOWN;
