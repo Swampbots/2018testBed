@@ -161,14 +161,14 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             // SAT MINIMUM
             if(gamepad1.dpad_left && dpLeftReady) {
-                if (hsvHue[0] > HSV_MIN)   hsvHue[0] -= THRESHOLD_STEP;
-                else                        hsvHue[0] = HSV_MIN;
+                if (hsvSat[0] > HSV_MIN)   hsvSat[0] -= THRESHOLD_STEP;
+                else                        hsvSat[0] = HSV_MIN;
                 dpLeftSnapshot = getRuntime();
             }
 
             if(gamepad1.dpad_right && dpRightReady) {
-                if(hsvHue[0] < hsvHue[1])  hsvHue[0] += THRESHOLD_STEP;
-                else                        hsvHue[0] = hsvHue[1];
+                if(hsvSat[0] < hsvSat[1])  hsvSat[0] += THRESHOLD_STEP;
+                else                        hsvSat[0] = hsvSat[1];
                 dpRightSnapshot = getRuntime();
             }
 
