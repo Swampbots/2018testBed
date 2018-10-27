@@ -109,7 +109,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 //            else hsvHue[1] = hsvHue[0];
 
             //------------------------------------------
-            // END HSVTHRESHOLD CONTROLS
+            // END HSV THRESHOLD CONTROLS
             //------------------------------------------
 
 
