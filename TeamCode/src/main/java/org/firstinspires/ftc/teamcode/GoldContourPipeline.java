@@ -32,9 +32,9 @@ public class GoldContourPipeline extends OpenCVPipeline {
     private ArrayList<MatOfPoint> filterContoursOutput = new ArrayList<MatOfPoint>();
 
     // HSV Threshold input variables
-    private double[] hsvHue = new double[2];
-    private double[] hsvSat = new double[2];
-    private double[] hsvVal = new double[2];
+    private double[] hsvHue = new double[]{0.0, 255.0};
+    private double[] hsvSat = new double[]{0.0, 255.0};
+    private double[] hsvVal = new double[]{0.0, 255.0};
 
     boolean showContours = false;
 
