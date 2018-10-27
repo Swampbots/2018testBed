@@ -33,6 +33,16 @@ public class GoldContourPipelineTest extends LinearOpMode {
     private double dpDownRuntimeDif = 0.0;
     private boolean dpDownReady = false;
 
+    // Y
+    private double ySnapshot = 0.0;
+    private double yRuntimeDif = 0.0;
+    private boolean yReady = false;
+
+    // A
+    private double aSnapshot = 0.0;
+    private double aRuntimeDif = 0.0;
+    private boolean aReady = false;
+
 
     public void runOpMode() {
 
@@ -71,6 +81,14 @@ public class GoldContourPipelineTest extends LinearOpMode {
             dpDownRuntimeDif = (getRuntime() - dpDownSnapshot);
             dpDownReady = dpDownRuntimeDif > COOLDOWN;
 
+            // Y
+            yRuntimeDif = (getRuntime() - ySnapshot);
+            yReady = yRuntimeDif > COOLDOWN;
+
+            // A
+            aRuntimeDif = (getRuntime() - aSnapshot);
+            aReady = aRuntimeDif > COOLDOWN;
+
 
 
 
@@ -100,7 +118,21 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 else                        hsvHue[0] = hsvHue[1];
                 dpUpSnapshot = getRuntime();
             }
-            
+
+
+            // HUE MAXIMUM
+            if(gamepad1.y && yReady) {
+                if (hsvHue[1] < HSV_MAX)   hsvHue[1] += 1.0;
+                else                        hsvHue[1] = HSV_MAX;
+                ySnapshot = getRuntime();
+            }
+
+            if(gamepad1.a && aReady) {
+                if(hsvHue[1] > hsvHue[0])  hsvHue[1] -= 1.0;
+                else                        hsvHue[1] = hsvHue[0];
+                aSnapshot = getRuntime();
+            }
+
 
             //------------------------------------------
             // END HSV THRESHOLD CONTROLS
@@ -114,11 +146,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Hue min", hsvHue[0]);
             telemetry.addData("Hue max", hsvHue[1]);
             telemetry.addLine();
-            telemetry.addData("dpUpReady", dpUpReady);
-            telemetry.addData("dpUpRuntime - snapshot", (int)dpUpRuntimeDif);
+            telemetry.addData("aReady", aReady);
+            telemetry.addData("aRuntime - snapshot", (int)aRuntimeDif);
             telemetry.addLine();
-            telemetry.addData("dpDownReady", dpDownReady);
-            telemetry.addData("dpDownRuntime - snapshot", (int)dpDownRuntimeDif);
+            telemetry.addData("yReady", yReady);
+            telemetry.addData("yRuntime - snapshot", (int)yRuntimeDif);
             telemetry.update();
         }
 
