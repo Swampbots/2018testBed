@@ -21,7 +21,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
     // Cooldown variables
-    private final double COOLDOWN = 0.5; // 0.5 seconds, 500 milliseconds
+    private final double COOLDOWN = 0.125; // 125 milliseconds
 
     private double dpUpSnapshot = 0.0;
     private double dpUpRuntimeDif = 0.0;
