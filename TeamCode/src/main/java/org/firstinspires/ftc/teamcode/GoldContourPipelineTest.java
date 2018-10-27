@@ -11,6 +11,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
     GoldContourPipeline vision;
 
     // HSV Threshold input variables
+    private final double HSV_MAX = 255.0;
+    private final double HSV_MIN = 0.0;
     private double[] hsvHue = new double[]{0.0, 255.0};
     private double[] hsvSat = new double[]{0.0, 255.0};
     private double[] hsvVal = new double[]{0.0, 255.0};
@@ -37,6 +39,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
         waitForStart();
 
         while(opModeIsActive()){
+            
         }
 
         vision.disable();
