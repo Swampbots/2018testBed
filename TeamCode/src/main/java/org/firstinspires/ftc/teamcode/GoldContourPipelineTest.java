@@ -86,6 +86,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
     private boolean rtReady = false;
 
 
+    // Variable for thresholding LT and RT inputs, e.g. if(gamepad1.left_trigger > TRIGGER_THRESHOLD)
+    public final double TRIGGER_THRESHOLD = 0.7;
+
+
     public void runOpMode() {
 
         vision = new GoldContourPipeline();
@@ -251,7 +255,23 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 else                        hsvSat[1] = hsvSat[0];
                 xSnapshot = getRuntime();
             }
-            
+
+
+
+
+            // VAL MINIMUM
+            if(gamepad1.left_trigger > TRIGGER_THRESHOLD && ltReady) {
+                if (hsvVal[0] > HSV_MIN)   hsvVal[0] -= THRESHOLD_STEP;
+                else                        hsvVal[0] = HSV_MIN;
+                ltSnapshot = getRuntime();
+            }
+
+            if(gamepad1.left_bumper && lbReady) {
+                if(hsvVal[0] < hsvVal[1])  hsvVal[0] += THRESHOLD_STEP;
+                else                        hsvVal[0] = hsvVal[1];
+                lbSnapshot = getRuntime();
+            }
+
             //--------------------------------------------------------------------------------------
             // END HSV THRESHOLD CONTROLS
             //--------------------------------------------------------------------------------------
@@ -275,9 +295,12 @@ public class GoldContourPipelineTest extends LinearOpMode {
 //            telemetry.addLine();
 //            telemetry.addData("Sat min", hsvSat[0]);
 //            telemetry.addData("Sat max", hsvSat[1]);
-            telemetry.addLine();
+//            telemetry.addLine();
             telemetry.addData("Val min", hsvVal[0]);
             telemetry.addData("Val max", hsvVal[1]);
+            telemetry.addLine();
+            telemetry.addData("LB Cooldown - runtime", lbRuntimeDif);
+            telemetry.addData("LB Ready", lbReady);
             telemetry.update();
         }
 
