@@ -147,6 +147,22 @@ public class GoldContourPipelineTest extends LinearOpMode {
             bRuntimeDif = (getRuntime() - bSnapshot);
             bReady = bRuntimeDif > COOLDOWN;
 
+            // LEFT BUTTON
+            lbRuntimeDif = (getRuntime() - lbSnapshot);
+            lbReady = lbRuntimeDif > COOLDOWN;
+
+            // LEFT TRIGGER
+            ltRuntimeDif = (getRuntime() - ltSnapshot);
+            ltReady = ltRuntimeDif > COOLDOWN;
+
+            // RIGHT BUTTON
+            rbRuntimeDif = (getRuntime() - rbSnapshot);
+            rbReady = rbRuntimeDif > COOLDOWN;
+
+            // RIGHT TRIGGER
+            rtRuntimeDif = (getRuntime() - rtSnapshot);
+            rtReady = rtRuntimeDif > COOLDOWN;
+
 
 
 
@@ -165,7 +181,6 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
                 Val min: gp1.lb,    gp1.lt
                 Val max: gp1.rb,    gp1.rt
-
              */
 
             // Modify threshold variables if the buttons are pressed and thresholds are within outer limits 0 & 255
