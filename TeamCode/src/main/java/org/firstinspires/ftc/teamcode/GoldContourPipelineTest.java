@@ -119,6 +119,14 @@ public class GoldContourPipelineTest extends LinearOpMode {
             aRuntimeDif = (getRuntime() - aSnapshot);
             aReady = aRuntimeDif > COOLDOWN;
 
+            // X
+            xRuntimeDif = (getRuntime() - xSnapshot);
+            xReady = xRuntimeDif > COOLDOWN;
+
+            // B
+            bRuntimeDif = (getRuntime() - bSnapshot);
+            bReady = bRuntimeDif > COOLDOWN;
+
 
 
 
@@ -187,13 +195,13 @@ public class GoldContourPipelineTest extends LinearOpMode {
 //            if(gamepad1.b && bReady) {
 //                if (hsvHue[1] < HSV_MAX)   hsvHue[1] += THRESHOLD_STEP;
 //                else                        hsvHue[1] = HSV_MAX;
-//                ySnapshot = getRuntime();
+//                bSnapshot = getRuntime();
 //            }
 //
 //            if(gamepad1.x && xReady) {
 //                if(hsvHue[1] > hsvHue[0])  hsvHue[1] -= THRESHOLD_STEP;
 //                else                        hsvHue[1] = hsvHue[0];
-//                aSnapshot = getRuntime();
+//                bSnapshot = getRuntime();
 //            }
 
 
