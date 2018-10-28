@@ -299,8 +299,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Val min", hsvVal[0]);
             telemetry.addData("Val max", hsvVal[1]);
             telemetry.addLine();
-            telemetry.addData("LB Cooldown - runtime", lbRuntimeDif);
-            telemetry.addData("LB Ready", lbReady);
+            telemetry.addData("RB Cooldown - runtime", rbRuntimeDif);
+            telemetry.addData("RB Ready", rbReady);
+            telemetry.addLine();
+            telemetry.addData("RT Cooldown - runtime", rtRuntimeDif);
+            telemetry.addData("RT Ready", rtReady);
             telemetry.update();
         }
 
