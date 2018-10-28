@@ -201,7 +201,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
             if(gamepad1.x && xReady) {
                 if(hsvSat[1] > hsvSat[0])  hsvSat[1] -= THRESHOLD_STEP;
                 else                        hsvSat[1] = hsvSat[0];
-                bSnapshot = getRuntime();
+                xSnapshot = getRuntime();
             }
 
 
@@ -210,7 +210,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
             //--------------------------------------------------------------------------------------
 
 
-            
+
 
             // Set HSV thresholds
             vision.setHsvHue(hsvHue);
