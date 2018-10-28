@@ -272,6 +272,21 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 lbSnapshot = getRuntime();
             }
 
+
+
+            // VAL MAXIMUM
+            if(gamepad1.right_trigger > TRIGGER_THRESHOLD && rtReady) {
+                if (hsvVal[1] > hsvVal[0])  hsvVal[1] -= THRESHOLD_STEP;
+                else                        hsvVal[1] = hsvVal[0];
+                rtSnapshot = getRuntime();
+            }
+
+            if(gamepad1.right_bumper && rbReady) {
+                if(hsvVal[1] < HSV_MAX)     hsvVal[1] += THRESHOLD_STEP;
+                else                        hsvVal[1] = HSV_MAX;
+                rbSnapshot = getRuntime();
+            }
+
             //--------------------------------------------------------------------------------------
             // END HSV THRESHOLD CONTROLS
             //--------------------------------------------------------------------------------------
@@ -290,20 +305,14 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
             // TELEMETRY
-//            telemetry.addData("Hue min", hsvHue[0]);
-//            telemetry.addData("Hue max", hsvHue[1]);
-//            telemetry.addLine();
-//            telemetry.addData("Sat min", hsvSat[0]);
-//            telemetry.addData("Sat max", hsvSat[1]);
-//            telemetry.addLine();
+            telemetry.addData("Hue min", hsvHue[0]);
+            telemetry.addData("Hue max", hsvHue[1]);
+            telemetry.addLine();
+            telemetry.addData("Sat min", hsvSat[0]);
+            telemetry.addData("Sat max", hsvSat[1]);
+            telemetry.addLine();
             telemetry.addData("Val min", hsvVal[0]);
             telemetry.addData("Val max", hsvVal[1]);
-            telemetry.addLine();
-            telemetry.addData("RB Cooldown - runtime", rbRuntimeDif);
-            telemetry.addData("RB Ready", rbReady);
-            telemetry.addLine();
-            telemetry.addData("RT Cooldown - runtime", rtRuntimeDif);
-            telemetry.addData("RT Ready", rtReady);
             telemetry.update();
         }
 
