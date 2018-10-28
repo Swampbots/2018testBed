@@ -297,7 +297,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // SET HSV THRESHOLDS
             vision.setHsvHue(hsvHue);
             vision.setHsvSat(hsvSat);
-//            vision.setHsvVal(hsvVal);
+            vision.setHsvVal(hsvVal);
 
 
 
