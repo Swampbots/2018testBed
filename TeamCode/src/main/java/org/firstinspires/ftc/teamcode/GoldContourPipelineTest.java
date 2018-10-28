@@ -108,7 +108,9 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
         while(opModeIsActive()) {
 
-            // COOLDOWNS
+            //--------------------------------------------------------------------------------------
+            // START COOLDOWN LOGIC
+            //--------------------------------------------------------------------------------------
 
             /*
              When a button is pressed, set the button's cooldown variable to the current runtime.
@@ -162,6 +164,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // RIGHT TRIGGER
             rtRuntimeDif = (getRuntime() - rtSnapshot);
             rtReady = rtRuntimeDif > COOLDOWN;
+
+
+            //--------------------------------------------------------------------------------------
+            // END COOLDOWN LOGIC
+            //--------------------------------------------------------------------------------------
 
 
 
