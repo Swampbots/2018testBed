@@ -130,9 +130,9 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
 
-            //------------------------------------------
+            //--------------------------------------------------------------------------------------
             // START HSV THRESHOLD CONTROLS
-            //------------------------------------------
+            //--------------------------------------------------------------------------------------
 
             /*
                 CONTROLS: (increase, decrease)
@@ -191,23 +191,26 @@ public class GoldContourPipelineTest extends LinearOpMode {
             }
 
 
-//            // SAT MAXIMUM
-//            if(gamepad1.b && bReady) {
-//                if (hsvHue[1] < HSV_MAX)   hsvHue[1] += THRESHOLD_STEP;
-//                else                        hsvHue[1] = HSV_MAX;
-//                bSnapshot = getRuntime();
-//            }
-//
-//            if(gamepad1.x && xReady) {
-//                if(hsvHue[1] > hsvHue[0])  hsvHue[1] -= THRESHOLD_STEP;
-//                else                        hsvHue[1] = hsvHue[0];
-//                bSnapshot = getRuntime();
-//            }
+            // SAT MAXIMUM
+            if(gamepad1.b && bReady) {
+                if (hsvSat[1] < HSV_MAX)   hsvSat[1] += THRESHOLD_STEP;
+                else                        hsvSat[1] = HSV_MAX;
+                bSnapshot = getRuntime();
+            }
+
+            if(gamepad1.x && xReady) {
+                if(hsvSat[1] > hsvSat[0])  hsvSat[1] -= THRESHOLD_STEP;
+                else                        hsvSat[1] = hsvSat[0];
+                bSnapshot = getRuntime();
+            }
 
 
-            //------------------------------------------
+            //--------------------------------------------------------------------------------------
             // END HSV THRESHOLD CONTROLS
-            //------------------------------------------
+            //--------------------------------------------------------------------------------------
+
+
+            
 
             // Set HSV thresholds
             vision.setHsvHue(hsvHue);
