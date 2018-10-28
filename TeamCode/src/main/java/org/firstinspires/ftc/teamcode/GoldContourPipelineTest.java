@@ -214,17 +214,18 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             // Set HSV thresholds
             vision.setHsvHue(hsvHue);
+            vision.setHsvSat(hsvSat);
 //            vision.setHsvVal(hsvVal);
-//            vision.setHsvSat(hsvSat);
+
 
 
 
 
 
             // TELEMETRY
-//            telemetry.addData("Hue min", hsvHue[0]);
-//            telemetry.addData("Hue max", hsvHue[1]);
-//            telemetry.addLine();
+            telemetry.addData("Hue min", hsvHue[0]);
+            telemetry.addData("Hue max", hsvHue[1]);
+            telemetry.addLine();
             telemetry.addData("Sat min", hsvSat[0]);
             telemetry.addData("Sat max", hsvSat[1]);
             telemetry.update();
