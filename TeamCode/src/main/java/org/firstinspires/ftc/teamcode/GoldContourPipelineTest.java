@@ -65,6 +65,26 @@ public class GoldContourPipelineTest extends LinearOpMode {
     private double bRuntimeDif = 0.0;
     private boolean bReady = false;
 
+    // LEFT BUTTON
+    private double lbSnapshot = 0.0;
+    private double lbRuntimeDif = 0.0;
+    private boolean lbReady = false;
+
+    // LEFT TRIGGER
+    private double ltSnapshot = 0.0;
+    private double ltRuntimeDif = 0.0;
+    private boolean ltReady = false;
+
+    // RIGHT BUTTON
+    private double rbSnapshot = 0.0;
+    private double rbRuntimeDif = 0.0;
+    private boolean rbReady = false;
+
+    // RIGHT TRIGGER
+    private double rtSnapshot = 0.0;
+    private double rtRuntimeDif = 0.0;
+    private boolean rtReady = false;
+
 
     public void runOpMode() {
 
@@ -142,6 +162,9 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
                 Sat min: gp1.right, gp1.left
                 Sat max: gp1.b,     gp1.x
+
+                Val min: gp1.lb,    gp1.lt
+                Val max: gp1.rb,    gp1.rt
 
              */
 
