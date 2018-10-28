@@ -133,6 +133,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
             dpRightRuntimeDif = (getRuntime() - dpRightSnapshot);
             dpRightReady = dpRightRuntimeDif > COOLDOWN;
 
+
+
             // Y
             yRuntimeDif = (getRuntime() - ySnapshot);
             yReady = yRuntimeDif > COOLDOWN;
@@ -149,6 +151,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
             bRuntimeDif = (getRuntime() - bSnapshot);
             bReady = bRuntimeDif > COOLDOWN;
 
+
+
             // LEFT BUTTON
             lbRuntimeDif = (getRuntime() - lbSnapshot);
             lbReady = lbRuntimeDif > COOLDOWN;
@@ -164,7 +168,6 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // RIGHT TRIGGER
             rtRuntimeDif = (getRuntime() - rtSnapshot);
             rtReady = rtRuntimeDif > COOLDOWN;
-
 
             //--------------------------------------------------------------------------------------
             // END COOLDOWN LOGIC
@@ -248,8 +251,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 else                        hsvSat[1] = hsvSat[0];
                 xSnapshot = getRuntime();
             }
-
-
+            
             //--------------------------------------------------------------------------------------
             // END HSV THRESHOLD CONTROLS
             //--------------------------------------------------------------------------------------
@@ -257,7 +259,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
 
-            // Set HSV thresholds
+            // SET HSV THRESHOLDS
             vision.setHsvHue(hsvHue);
             vision.setHsvSat(hsvSat);
 //            vision.setHsvVal(hsvVal);
