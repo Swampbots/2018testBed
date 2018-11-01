@@ -303,16 +303,30 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
 
+            // Camera view section variables
+            int camWidth = vision.getCameraView().getWidth();
+            int camHeight = vision.getCameraView().getHeight();
+
+
 
             // TELEMETRY
-            telemetry.addData("Hue min", hsvHue[0]);
-            telemetry.addData("Hue max", hsvHue[1]);
+//            telemetry.addData("Hue min", hsvHue[0]);
+//            telemetry.addData("Hue max", hsvHue[1]);
+//            telemetry.addLine();
+//            telemetry.addData("Sat min", hsvSat[0]);
+//            telemetry.addData("Sat max", hsvSat[1]);
+//            telemetry.addLine();
+//            telemetry.addData("Val min", hsvVal[0]);
+//            telemetry.addData("Val max", hsvVal[1]);
+//            telemetry.addLine();
+            telemetry.addData("Camera Height", camHeight);
+            telemetry.addData("Camera Width", camWidth);
             telemetry.addLine();
-            telemetry.addData("Sat min", hsvSat[0]);
-            telemetry.addData("Sat max", hsvSat[1]);
+            telemetry.addData("Height / 3", camHeight / 3);
+            telemetry.addData("Height * 2 / 3", camHeight * 2 / 3);
             telemetry.addLine();
-            telemetry.addData("Val min", hsvVal[0]);
-            telemetry.addData("Val max", hsvVal[1]);
+            telemetry.addData("Width / 3", camWidth / 3);
+            telemetry.addData("Width * 2/ 3", camWidth * 2 / 3);
             telemetry.update();
         }
 
