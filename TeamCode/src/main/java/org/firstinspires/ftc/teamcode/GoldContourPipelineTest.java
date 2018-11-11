@@ -10,6 +10,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
     GoldContourPipeline vision;
 
+    RoverHardware hardware;
+
 
     // HSV Threshold input variables
     private final double THRESHOLD_STEP = 1.0;
@@ -92,6 +94,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
     public void runOpMode() {
 
+        // OCV INITIALIZATION
         vision = new GoldContourPipeline();
         telemetry.addLine("GoldPipeline instance created.");
         telemetry.update();
@@ -107,6 +110,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
         telemetry.addLine("Press play to start.");
         telemetry.update();
         sleep(2500);
+
+
+
+        // HARDWARE INITIALIZATION
+        hardware.init(hardwareMap);
 
         waitForStart();
 
@@ -306,6 +314,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // Camera view section variables
             int camWidth = vision.getCameraView().getWidth();
             int camHeight = vision.getCameraView().getHeight();
+
+
+
+            //
 
 
 
