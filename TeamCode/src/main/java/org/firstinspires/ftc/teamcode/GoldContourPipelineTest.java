@@ -97,7 +97,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
         telemetry.update();
         sleep(800);
 
-        vision.init(hardwareMap.appContext, CameraViewDisplay.getInstance());
+        vision.init(hardwareMap.appContext, CameraViewDisplay.getInstance(), 1);
         telemetry.addLine("Vision initialized.");
         telemetry.update();
         sleep(800);
