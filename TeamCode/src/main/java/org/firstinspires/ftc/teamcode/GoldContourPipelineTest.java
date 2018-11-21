@@ -10,7 +10,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
     GoldContourPipeline vision;
 
-    RoverHardware hardware;
+    RoverHardware hardware = new RoverHardware();
 
 
     // HSV Threshold input variables
