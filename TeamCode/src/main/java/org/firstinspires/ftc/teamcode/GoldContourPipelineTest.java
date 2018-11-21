@@ -313,7 +313,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
 
-            // Camera view section variables
+            // Image dimensions
             int camWidth = vision.getCameraView().getWidth();
             int camHeight = vision.getCameraView().getHeight();
 
