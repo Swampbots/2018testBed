@@ -77,7 +77,7 @@ public class GoldContourPipeline extends OpenCVPipeline {
         if (showContours) {
             // this draws the outlines of the blue contours over our original image.
             // they are highlighted in green.
-            Imgproc.drawContours(hsvThresholdOutput, filterContoursOutput, -1, new Scalar(0, 255, 0), 2, 8);
+            Imgproc.drawContours(hsvThresholdOutput, findContoursOutput, -1, new Scalar(0, 255, 0), 2, 8);
         }
 
         return hsvThresholdOutput;
