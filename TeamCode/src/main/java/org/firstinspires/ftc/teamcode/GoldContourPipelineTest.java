@@ -116,6 +116,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
         // HARDWARE INITIALIZATION
         hardware.init(hardwareMap);
 
+
+
         waitForStart();
 
         while(opModeIsActive()) {
@@ -314,10 +316,6 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // Camera view section variables
             int camWidth = vision.getCameraView().getWidth();
             int camHeight = vision.getCameraView().getHeight();
-
-
-
-            //
 
 
 
