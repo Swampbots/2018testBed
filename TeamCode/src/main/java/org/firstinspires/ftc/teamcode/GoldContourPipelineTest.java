@@ -310,6 +310,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
             vision.setHsvVal(hsvVal);
 
 
+            // Show contours on left_stick_button press
+            vision.setShowCountours(gamepad1.left_stick_button);
+
+
 
 
 
