@@ -334,7 +334,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             int contourWidthMid;
             int contourHeightMid;
-            ContourPlacement contourPlacement = ContourPlacement.UNKNOWN;
+            ContourPlacement contourPlacement;
 
 
 
@@ -352,11 +352,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Camera Height", camHeight);
             telemetry.addData("Camera Width", camWidth);
             telemetry.addLine();
-            telemetry.addData("Height / 3", camHeight / 3);
-            telemetry.addData("Height * 2 / 3", camHeight * 2 / 3);
-            telemetry.addLine();
-            telemetry.addData("Width / 3", camWidth / 3);
-            telemetry.addData("Width * 2/ 3", camWidth * 2 / 3);
+            telemetry.addData("Camera Left Bound", camLeftBound);
+            telemetry.addData("Camera Center Bound", camCenterBound);
             telemetry.addLine();
             try {
                 if(contours != null) {
