@@ -4,6 +4,12 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.corningrobotics.enderbots.endercv.CameraViewDisplay;
+import org.opencv.core.MatOfPoint;
+import org.opencv.core.Rect;
+import org.opencv.imgproc.Imgproc;
+
+import java.util.List;
+import java.util.Locale;
 
 @Autonomous(name = "Gold Contour Pipeline Test", group = "Testing")
 public class GoldContourPipelineTest extends LinearOpMode {
@@ -321,6 +327,9 @@ public class GoldContourPipelineTest extends LinearOpMode {
             int camWidth = vision.getCameraView().getWidth();
             int camHeight = vision.getCameraView().getHeight();
 
+            // Contour array
+            List<MatOfPoint> contours = vision.findContoursOutput();
+
 
 
             // TELEMETRY
@@ -341,6 +350,16 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addLine();
             telemetry.addData("Width / 3", camWidth / 3);
             telemetry.addData("Width * 2/ 3", camWidth * 2 / 3);
+            telemetry.addLine();
+            if(contours != null) {
+                if(contours.size() > 0) {
+                    for(int i = 0; i < contours.size(); i++) {
+                        Rect boundingRect = Imgproc.boundingRect(contours.get(i));
+                        telemetry.addData("Contour" + Integer.toString(i),
+                                String.format(Locale.getDefault(), "(%d, %d)", (boundingRect.x + boundingRect.width) / 2, (boundingRect.y + boundingRect.height) / 2));
+                    }
+                }
+            }
             telemetry.update();
         }
 
