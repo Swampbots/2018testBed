@@ -334,6 +334,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             int contourWidthMid;
             int contourHeightMid;
+            int contourPlacement;
 
 
 
@@ -364,6 +365,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
                             Rect boundingRect = Imgproc.boundingRect(contours.get(i));
                             contourHeightMid = (boundingRect.y + boundingRect.height) / 2;
                             contourWidthMid = (boundingRect.x + boundingRect.width) / 2;
+                            if(contourWidthMid < camLeftBound) contourPlacement = 0;
+                            else if(contourWidthMid < camCenterBound) contourPlacement = 1;
+                            else contourPlacement = 2;
+
                             telemetry.addData("Contour" + Integer.toString(i),
                                     String.format(Locale.getDefault(), "(%d, %d, %d)", contourWidthMid, contourHeightMid, ));
                         }
