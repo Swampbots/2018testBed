@@ -326,7 +326,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // Image dimensions
             int camWidth = vision.getCameraView().getWidth();
             int camHeight = vision.getCameraView().getHeight();
-            
+            int camLeftBound = camWidth / 3;
+            int camCenterBound = camWidth * 2 / 3;
 
             // Contour array
             List<MatOfPoint> contours = vision.findContoursOutput();
