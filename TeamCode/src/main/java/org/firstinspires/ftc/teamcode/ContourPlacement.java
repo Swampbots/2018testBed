@@ -8,6 +8,20 @@ public enum ContourPlacement {
     UNKNOWN;
 
 
-    
+    @Override
+    public String toString() {
+        switch(this) {
+            case LEFT:
+                return "Left";
+            case CENTER:
+                return "Center";
+            case RIGHT:
+                return "Right";
+            case UNKNOWN:
+                return "Unknown";
+            default:
+                return "Unknown";
+        }
+    }
 
 }
