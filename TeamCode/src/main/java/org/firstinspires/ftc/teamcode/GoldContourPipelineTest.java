@@ -332,6 +332,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // Contour array
             List<MatOfPoint> contours = vision.findContoursOutput();
 
+            int contourWidthMid;
+            int contourHeightMid;
 
 
 
@@ -360,8 +362,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
                     if(contours.size() > 0) {
                         for(int i = 0; i < contours.size(); i++) {
                             Rect boundingRect = Imgproc.boundingRect(contours.get(i));
+                            contourHeightMid = (boundingRect.y + boundingRect.height) / 2;
+                            contourWidthMid = (boundingRect.x + boundingRect.width) / 2;
                             telemetry.addData("Contour" + Integer.toString(i),
-                                    String.format(Locale.getDefault(), "(%d, %d, %d)", (boundingRect.x + boundingRect.width) / 2, (boundingRect.y + boundingRect.height) / 2, ));
+                                    String.format(Locale.getDefault(), "(%d, %d, %d)", contourWidthMid, contourHeightMid, ));
                         }
                     }
                 }
