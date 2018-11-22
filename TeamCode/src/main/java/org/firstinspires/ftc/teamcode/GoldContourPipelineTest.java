@@ -356,8 +356,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
                     if(contours.size() > 0) {
                         for(int i = 0; i < contours.size(); i++) {
                             Rect boundingRect = Imgproc.boundingRect(contours.get(i));
-                            contourHeightMid = (boundingRect.y + boundingRect.height) / 2;
-                            contourWidthMid = (boundingRect.x + boundingRect.width) / 2;
+                            contourWidthMid = (boundingRect.y + boundingRect.height) / 2;
+                            contourHeightMid = (boundingRect.x + boundingRect.width) / 2;
                             if(contourWidthMid < camLeftBound) contourPlacement = ContourPlacement.LEFT;
                             else if(contourWidthMid < camCenterBound) contourPlacement = ContourPlacement.CENTER;
                             else contourPlacement = ContourPlacement.RIGHT;
