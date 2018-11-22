@@ -320,8 +320,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
             // Image dimensions
-            int camHeight = vision.getCameraView().getWidth();
-            int camWidth = vision.getCameraView().getHeight();
+            int camWidth = vision.getCameraView().getWidth();
+            int camHeight = vision.getCameraView().getHeight();
             int camLeftBound = camWidth / 3;
             int camCenterBound = camWidth * 2 / 3;
 
@@ -356,8 +356,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
                     if(contours.size() > 0) {
                         for(int i = 0; i < contours.size(); i++) {
                             Rect boundingRect = Imgproc.boundingRect(contours.get(i));
-                            contourWidthMid = (boundingRect.y + boundingRect.height) / 2;
-                            contourHeightMid = (boundingRect.x + boundingRect.width) / 2;
+                            contourHeightMid = (boundingRect.y + boundingRect.height) / 2;
+                            contourWidthMid = (boundingRect.x + boundingRect.width) / 2;
                             if(contourWidthMid < camLeftBound) contourPlacement = ContourPlacement.LEFT;
                             else if(contourWidthMid < camCenterBound) contourPlacement = ContourPlacement.CENTER;
                             else contourPlacement = ContourPlacement.RIGHT;
