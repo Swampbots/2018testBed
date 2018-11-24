@@ -369,7 +369,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 }
             } catch(Exception e) {
                 e.printStackTrace();
-                telemetry.addData("Excpetion", e.getMessage());
+                telemetry.addData("Exception", e.getMessage());
             }
 
             telemetry.update();
