@@ -26,7 +26,7 @@ public class TestPID extends LinearOpMode {
     // State used for updating telemetry
     Orientation angles;
 
-    TileRunnerREV hardware = new TileRunnerREV();
+    RoverHardware hardware = new RoverHardware();
 
     @Override
     public void runOpMode() throws InterruptedException {
