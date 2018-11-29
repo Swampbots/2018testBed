@@ -104,7 +104,8 @@ public class TestPID extends LinearOpMode {
             Thread.sleep(1);
         }
 
-        hardware.linearDrive(0);
+        hardware.setLeftPower(0);
+        hardware.setRightPower(0);
     }
 
     public double normalize180(double angle) {
