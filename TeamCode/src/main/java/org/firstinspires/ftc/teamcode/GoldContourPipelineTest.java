@@ -316,12 +316,13 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // Show contours on left_stick_button press
             vision.setShowCountours(gamepad1.left_stick_button);
 
-            
+
 
             // Contour array
             List<MatOfPoint> contours = vision.findContoursOutput();
 
-
+            int contourHeightMid;
+            int contourWidthMid;
 
 
             // TELEMETRY
