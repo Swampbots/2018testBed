@@ -56,13 +56,15 @@ public class GoldContourPipelineTest extends LinearOpMode {
     int contourXMax = -1;
 
 
+
     private final int CTR_MAX_Y = 192;
     private final int CTR_MAX_X = 144;
 
     private final int CTR_MIN_Y = 0;
     private final int CTR_MIN_X = 0;
-
     
+
+
 
 
     // Variable for thresholding LT and RT inputs, e.g. if(gamepad1.left_trigger > TRIGGER_THRESHOLD)
