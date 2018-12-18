@@ -57,12 +57,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
 
-    private final int CTR_MAX_Y = 192;
-    private final int CTR_MAX_X = 144;
+    private final double CTR_MAX_Y = 192.0;
+    private final double CTR_MAX_X = 144.0;
 
-    private final int CTR_MIN_Y = 0;
-    private final int CTR_MIN_X = 0;
-    
+    private final double CTR_MIN_Y = 0.0;
+    private final double CTR_MIN_X = 0.0;
 
 
 
