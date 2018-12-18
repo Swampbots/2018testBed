@@ -213,6 +213,13 @@ public class GoldContourPipelineTest extends LinearOpMode {
             int contourHeightMid;
             int contourWidthMid;
 
+            // Min and max for average X and Y values of all seen contours
+            int contourYMin = -1; // Y is the height
+            int contourYMax = -1;
+
+            int contourXMin = -1; // X is the width
+            int contourXMax = -1;
+
 
             // TELEMETRY
             telemetry.addData("Hue min", hsvHue[0]);
@@ -224,6 +231,13 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Val min", hsvVal[0]);
             telemetry.addData("Val max", hsvVal[1]);
             telemetry.addLine();
+            telemetry.addLine();
+            telemetry.addData("Contour max Y", contourYMax);
+            telemetry.addData("Contour min Y", contourYMin);
+            telemetry.addLine();
+            telemetry.addData("Contour max X", contourXMax);
+            telemetry.addData("Contour min X", contourXMin);
+            telemetry.addLine();
             try {
                 if(contours != null) {
                     if(contours.size() > 0) {
@@ -231,6 +245,17 @@ public class GoldContourPipelineTest extends LinearOpMode {
                             Rect boundingRect = Imgproc.boundingRect(contours.get(i));
                             contourHeightMid = (boundingRect.y + boundingRect.height) / 2;
                             contourWidthMid = (boundingRect.x + boundingRect.width) / 2;
+
+                            // Only assign a new value to a minimum if none have yet been assigned
+                            // or if the current contour has a smaller height.
+                            if(contourYMin == -1 || contourYMin > contourHeightMid) contourYMin = contourHeightMid; // Y, height
+                            if(contourXMin == -1 || contourXMin > contourWidthMid) contourXMin = contourWidthMid;   // X, width
+
+                            // Only assign a new value to a maximum if none have yet been assigned
+                            // or if the current contour has a larger height.
+                            if(contourYMax == -1 || contourYMax < contourHeightMid) contourYMax = contourHeightMid; // Y, height
+                            if(contourXMax == -1 || contourXMax < contourWidthMid) contourXMax = contourWidthMid;   // X, width
+
 
                             telemetry.addData("Contour" + Integer.toString(i),
                                     String.format(Locale.getDefault(), "%d", contourWidthMid));
