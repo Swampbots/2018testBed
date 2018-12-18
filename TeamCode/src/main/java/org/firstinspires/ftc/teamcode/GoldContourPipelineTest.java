@@ -32,67 +32,84 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
     // Cooldown variables
 
-    private final double COOLDOWN = 0.075; // 75 milliseconds
+    ButtonCooldown dpUp     = new ButtonCooldown();
+    ButtonCooldown dpDown   = new ButtonCooldown();
+    ButtonCooldown dpLeft   = new ButtonCooldown();
+    ButtonCooldown dpRight  = new ButtonCooldown();
 
-    // DPAD UP
-    private double dpUpSnapshot = 0.0;
-    private double dpUpRuntimeDif = 0.0;
-    private boolean dpUpReady = false;
+    ButtonCooldown a    = new ButtonCooldown();
+    ButtonCooldown b    = new ButtonCooldown();
+    ButtonCooldown x    = new ButtonCooldown();
+    ButtonCooldown y    = new ButtonCooldown();
 
-    // DPAD DOWN
-    private double dpDownSnapshot = 0.0;
-    private double dpDownRuntimeDif = 0.0;
-    private boolean dpDownReady = false;
+    ButtonCooldown lb   = new ButtonCooldown();
+    ButtonCooldown rb   = new ButtonCooldown();
+    ButtonCooldown lt   = new ButtonCooldown();
+    ButtonCooldown rt   = new ButtonCooldown();
 
-    // DPAD LEFT
-    private double dpLeftSnapshot = 0.0;
-    private double dpLeftRuntimeDif = 0.0;
-    private boolean dpLeftReady = false;
 
-    // DPAD RIGHT
-    private double dpRightSnapshot = 0.0;
-    private double dpRightRuntimeDif = 0.0;
-    private boolean dpRightReady = false;
 
-    // Y
-    private double ySnapshot = 0.0;
-    private double yRuntimeDif = 0.0;
-    private boolean yReady = false;
-
-    // A
-    private double aSnapshot = 0.0;
-    private double aRuntimeDif = 0.0;
-    private boolean aReady = false;
-
-    // X
-    private double xSnapshot = 0.0;
-    private double xRuntimeDif = 0.0;
-    private boolean xReady = false;
-
-    // B
-    private double bSnapshot = 0.0;
-    private double bRuntimeDif = 0.0;
-    private boolean bReady = false;
-
-    // LEFT BUTTON
-    private double lbSnapshot = 0.0;
-    private double lbRuntimeDif = 0.0;
-    private boolean lbReady = false;
-
-    // LEFT TRIGGER
-    private double ltSnapshot = 0.0;
-    private double ltRuntimeDif = 0.0;
-    private boolean ltReady = false;
-
-    // RIGHT BUTTON
-    private double rbSnapshot = 0.0;
-    private double rbRuntimeDif = 0.0;
-    private boolean rbReady = false;
-
-    // RIGHT TRIGGER
-    private double rtSnapshot = 0.0;
-    private double rtRuntimeDif = 0.0;
-    private boolean rtReady = false;
+//    private final double COOLDOWN = 0.075; // 75 milliseconds
+//
+//    // DPAD UP
+//    private double dpUpSnapshot = 0.0;
+//    private double dpUpRuntimeDif = 0.0;
+//    private boolean dpUpReady = false;
+//
+//    // DPAD DOWN
+//    private double dpDownSnapshot = 0.0;
+//    private double dpDownRuntimeDif = 0.0;
+//    private boolean dpDownReady = false;
+//
+//    // DPAD LEFT
+//    private double dpLeftSnapshot = 0.0;
+//    private double dpLeftRuntimeDif = 0.0;
+//    private boolean dpLeftReady = false;
+//
+//    // DPAD RIGHT
+//    private double dpRightSnapshot = 0.0;
+//    private double dpRightRuntimeDif = 0.0;
+//    private boolean dpRightReady = false;
+//
+//    // Y
+//    private double ySnapshot = 0.0;
+//    private double yRuntimeDif = 0.0;
+//    private boolean yReady = false;
+//
+//    // A
+//    private double aSnapshot = 0.0;
+//    private double aRuntimeDif = 0.0;
+//    private boolean aReady = false;
+//
+//    // X
+//    private double xSnapshot = 0.0;
+//    private double xRuntimeDif = 0.0;
+//    private boolean xReady = false;
+//
+//    // B
+//    private double bSnapshot = 0.0;
+//    private double bRuntimeDif = 0.0;
+//    private boolean bReady = false;
+//
+//    // LEFT BUTTON
+//    private double lbSnapshot = 0.0;
+//    private double lbRuntimeDif = 0.0;
+//    private boolean lbReady = false;
+//
+//    // LEFT TRIGGER
+//    private double ltSnapshot = 0.0;
+//    private double ltRuntimeDif = 0.0;
+//    private boolean ltReady = false;
+//
+//    // RIGHT BUTTON
+//    private double rbSnapshot = 0.0;
+//    private double rbRuntimeDif = 0.0;
+//    private boolean rbReady = false;
+//
+//    // RIGHT TRIGGER
+//    private double rtSnapshot = 0.0;
+//    private double rtRuntimeDif = 0.0;
+//    private boolean rtReady = false;
 
 
     // Variable for thresholding LT and RT inputs, e.g. if(gamepad1.left_trigger > TRIGGER_THRESHOLD)
