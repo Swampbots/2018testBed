@@ -241,6 +241,8 @@ public class GoldContourPipelineTest extends LinearOpMode {
             int centerTally = 0;
             int rightTally = 0;
 
+            int[] ctrTallies = {leftTally, centerTally, rightTally};
+
 
             // Reset contours on right_stick_button press
 //            if(gamepad1.right_stick_button) resetContourBounds();
@@ -307,11 +309,23 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Center tally", centerTally);
             telemetry.addData("Right tally", rightTally);
             telemetry.addLine();
-            
+            telemetry.addData("Most common", highestTally(ctrTallies));
+
             telemetry.update();
         }
 
         vision.disable();
+    }
+
+    private String highestTally(int[] tallies) {
+        int highest;
+
+        highest = (tallies[0] > tallies[1] ? tallies[0] : tallies[1]);
+        highest = (highest > tallies[2] ? highest : tallies[2]);
+
+        if(highest == tallies[0])       return "Left";
+        else if(highest == tallies[1])  return "Center";
+        else                            return "Right";
     }
 
 //    private void resetContourBounds() {
