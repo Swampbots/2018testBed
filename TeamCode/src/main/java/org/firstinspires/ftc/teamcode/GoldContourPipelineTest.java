@@ -233,6 +233,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             int contourHeightMid;
             int contourWidthMid;
+            ContourPlacement contourPlacement;
 
 
             // Reset contours on right_stick_button press
@@ -274,9 +275,12 @@ public class GoldContourPipelineTest extends LinearOpMode {
 //                            if(contourYMax == -1 || contourYMax < contourHeightMid) contourYMax = contourHeightMid; // Y, height
 //                            if(contourXMax == -1 || contourXMax < contourWidthMid) contourXMax = contourWidthMid;   // X, width
 
+                            if(contourHeightMid < CTR_LEFT) contourPlacement = ContourPlacement.LEFT;
+                            else if(contourHeightMid < CTR_RIGHT) contourPlacement = ContourPlacement.CENTER;
+                            else contourPlacement = ContourPlacement.RIGHT;
 
                             telemetry.addData("Contour" + Integer.toString(i),
-                                    String.format(Locale.getDefault(), "%d", contourWidthMid));
+                                    String.format(Locale.getDefault(), "(%d, %s)", contourWidthMid, contourPlacement.toString()));
                         }
                     }
                 }
