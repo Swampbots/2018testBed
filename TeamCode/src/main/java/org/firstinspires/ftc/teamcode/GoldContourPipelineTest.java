@@ -31,6 +31,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
     // Cooldown variables
+
     private final double COOLDOWN = 0.075; // 75 milliseconds
 
     // DPAD UP
@@ -315,22 +316,10 @@ public class GoldContourPipelineTest extends LinearOpMode {
             // Show contours on left_stick_button press
             vision.setShowCountours(gamepad1.left_stick_button);
 
-
-
-
-
-            // Image dimensions
-            int camWidth = vision.getCameraView().getWidth();
-            int camHeight = vision.getCameraView().getHeight();
-            int camLeftBound = camWidth / 3;
-            int camCenterBound = camWidth * 2 / 3;
+            
 
             // Contour array
             List<MatOfPoint> contours = vision.findContoursOutput();
-
-            int contourWidthMid;
-            int contourHeightMid;
-            ContourPlacement contourPlacement;
 
 
 
@@ -345,12 +334,6 @@ public class GoldContourPipelineTest extends LinearOpMode {
             telemetry.addData("Val min", hsvVal[0]);
             telemetry.addData("Val max", hsvVal[1]);
             telemetry.addLine();
-            telemetry.addData("Camera Height", camHeight);
-            telemetry.addData("Camera Width", camWidth);
-            telemetry.addLine();
-            telemetry.addData("Camera Left Bound", camLeftBound);
-            telemetry.addData("Camera Center Bound", camCenterBound);
-            telemetry.addLine();
             try {
                 if(contours != null) {
                     if(contours.size() > 0) {
@@ -358,12 +341,9 @@ public class GoldContourPipelineTest extends LinearOpMode {
                             Rect boundingRect = Imgproc.boundingRect(contours.get(i));
                             contourHeightMid = (boundingRect.y + boundingRect.height) / 2;
                             contourWidthMid = (boundingRect.x + boundingRect.width) / 2;
-                            if(contourWidthMid < camLeftBound) contourPlacement = ContourPlacement.LEFT;
-                            else if(contourWidthMid < camCenterBound) contourPlacement = ContourPlacement.CENTER;
-                            else contourPlacement = ContourPlacement.RIGHT;
 
                             telemetry.addData("Contour" + Integer.toString(i),
-                                    String.format(Locale.getDefault(), "(%d, %s)", contourWidthMid, contourPlacement));
+                                    String.format(Locale.getDefault(), "%d", contourWidthMid));
                         }
                     }
                 }
