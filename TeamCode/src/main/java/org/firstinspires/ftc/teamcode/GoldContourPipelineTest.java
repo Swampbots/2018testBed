@@ -229,31 +229,34 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
             // Modify threshold variables if the buttons are pressed and thresholds are within outer limits 0 & 255
 
+            // Update runtime once every cycle
+            double runtime = getRuntime();
+
             // HUE MINIMUM
-            if(gamepad1.dpad_down && dpDownReady) {
+            if(gamepad1.dpad_down && dpDown.ready(runtime)) {
                 if (hsvHue[0] > HSV_MIN)   hsvHue[0] -= THRESHOLD_STEP;
                 else                        hsvHue[0] = HSV_MIN;
-                dpDownSnapshot = getRuntime();
+                dpDown.updateSnapshot(runtime);
             }
 
-            if(gamepad1.dpad_up && dpUpReady) {
+            if(gamepad1.dpad_up && dpUp.ready(runtime)) {
                 if(hsvHue[0] < hsvHue[1])  hsvHue[0] += THRESHOLD_STEP;
                 else                        hsvHue[0] = hsvHue[1];
-                dpUpSnapshot = getRuntime();
+                dpUp.updateSnapshot(runtime);
             }
 
 
             // HUE MAXIMUM
-            if(gamepad1.y && yReady) {
+            if(gamepad1.y && y.ready(runtime)) {
                 if (hsvHue[1] < HSV_MAX)   hsvHue[1] += THRESHOLD_STEP;
                 else                        hsvHue[1] = HSV_MAX;
-                ySnapshot = getRuntime();
+                y.updateSnapshot(runtime);
             }
 
-            if(gamepad1.a && aReady) {
+            if(gamepad1.a && a.ready(runtime)) {
                 if(hsvHue[1] > hsvHue[0])  hsvHue[1] -= THRESHOLD_STEP;
                 else                        hsvHue[1] = hsvHue[0];
-                aSnapshot = getRuntime();
+                a.updateSnapshot(runtime);
             }
 
 
