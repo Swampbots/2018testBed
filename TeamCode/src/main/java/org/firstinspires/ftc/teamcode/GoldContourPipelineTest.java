@@ -151,57 +151,57 @@ public class GoldContourPipelineTest extends LinearOpMode {
              While the difference between the cooldown variable and the runtime is below some constant: don't allow thresholds to change
               */
 
-            // DPAD UP
-            dpUpRuntimeDif = (getRuntime() - dpUpSnapshot);
-            dpUpReady = dpUpRuntimeDif > COOLDOWN;
-
-            // DPAD DOWN
-            dpDownRuntimeDif = (getRuntime() - dpDownSnapshot);
-            dpDownReady = dpDownRuntimeDif > COOLDOWN;
-
-            // DPAD LEFT
-            dpLeftRuntimeDif = (getRuntime() - dpLeftSnapshot);
-            dpLeftReady = dpLeftRuntimeDif > COOLDOWN;
-
-            // DPAD RIGHT
-            dpRightRuntimeDif = (getRuntime() - dpRightSnapshot);
-            dpRightReady = dpRightRuntimeDif > COOLDOWN;
-
-
-
-            // Y
-            yRuntimeDif = (getRuntime() - ySnapshot);
-            yReady = yRuntimeDif > COOLDOWN;
-
-            // A
-            aRuntimeDif = (getRuntime() - aSnapshot);
-            aReady = aRuntimeDif > COOLDOWN;
-
-            // X
-            xRuntimeDif = (getRuntime() - xSnapshot);
-            xReady = xRuntimeDif > COOLDOWN;
-
-            // B
-            bRuntimeDif = (getRuntime() - bSnapshot);
-            bReady = bRuntimeDif > COOLDOWN;
-
-
-
-            // LEFT BUTTON
-            lbRuntimeDif = (getRuntime() - lbSnapshot);
-            lbReady = lbRuntimeDif > COOLDOWN;
-
-            // LEFT TRIGGER
-            ltRuntimeDif = (getRuntime() - ltSnapshot);
-            ltReady = ltRuntimeDif > COOLDOWN;
-
-            // RIGHT BUTTON
-            rbRuntimeDif = (getRuntime() - rbSnapshot);
-            rbReady = rbRuntimeDif > COOLDOWN;
-
-            // RIGHT TRIGGER
-            rtRuntimeDif = (getRuntime() - rtSnapshot);
-            rtReady = rtRuntimeDif > COOLDOWN;
+//            // DPAD UP
+//            dpUpRuntimeDif = (getRuntime() - dpUpSnapshot);
+//            dpUpReady = dpUpRuntimeDif > COOLDOWN;
+//
+//            // DPAD DOWN
+//            dpDownRuntimeDif = (getRuntime() - dpDownSnapshot);
+//            dpDownReady = dpDownRuntimeDif > COOLDOWN;
+//
+//            // DPAD LEFT
+//            dpLeftRuntimeDif = (getRuntime() - dpLeftSnapshot);
+//            dpLeftReady = dpLeftRuntimeDif > COOLDOWN;
+//
+//            // DPAD RIGHT
+//            dpRightRuntimeDif = (getRuntime() - dpRightSnapshot);
+//            dpRightReady = dpRightRuntimeDif > COOLDOWN;
+//
+//
+//
+//            // Y
+//            yRuntimeDif = (getRuntime() - ySnapshot);
+//            yReady = yRuntimeDif > COOLDOWN;
+//
+//            // A
+//            aRuntimeDif = (getRuntime() - aSnapshot);
+//            aReady = aRuntimeDif > COOLDOWN;
+//
+//            // X
+//            xRuntimeDif = (getRuntime() - xSnapshot);
+//            xReady = xRuntimeDif > COOLDOWN;
+//
+//            // B
+//            bRuntimeDif = (getRuntime() - bSnapshot);
+//            bReady = bRuntimeDif > COOLDOWN;
+//
+//
+//
+//            // LEFT BUTTON
+//            lbRuntimeDif = (getRuntime() - lbSnapshot);
+//            lbReady = lbRuntimeDif > COOLDOWN;
+//
+//            // LEFT TRIGGER
+//            ltRuntimeDif = (getRuntime() - ltSnapshot);
+//            ltReady = ltRuntimeDif > COOLDOWN;
+//
+//            // RIGHT BUTTON
+//            rbRuntimeDif = (getRuntime() - rbSnapshot);
+//            rbReady = rbRuntimeDif > COOLDOWN;
+//
+//            // RIGHT TRIGGER
+//            rtRuntimeDif = (getRuntime() - rtSnapshot);
+//            rtReady = rtRuntimeDif > COOLDOWN;
 
             //--------------------------------------------------------------------------------------
             // END COOLDOWN LOGIC
