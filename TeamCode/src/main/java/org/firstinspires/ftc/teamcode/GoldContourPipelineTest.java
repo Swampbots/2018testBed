@@ -48,6 +48,14 @@ public class GoldContourPipelineTest extends LinearOpMode {
     ButtonCooldown rt   = new ButtonCooldown();
 
 
+    // Min and max for average X and Y values of all seen contours
+    int contourYMin = -1; // Y is the height
+    int contourYMax = -1;
+
+    int contourXMin = -1; // X is the width
+    int contourXMax = -1;
+
+
     // Variable for thresholding LT and RT inputs, e.g. if(gamepad1.left_trigger > TRIGGER_THRESHOLD)
     public final double TRIGGER_THRESHOLD = 0.7;
 
@@ -213,12 +221,9 @@ public class GoldContourPipelineTest extends LinearOpMode {
             int contourHeightMid;
             int contourWidthMid;
 
-            // Min and max for average X and Y values of all seen contours
-            int contourYMin = -1; // Y is the height
-            int contourYMax = -1;
 
-            int contourXMin = -1; // X is the width
-            int contourXMax = -1;
+            // Reset contours on right_stick_button press
+            if(gamepad1.right_stick_button) resetContourBounds();
 
 
             // TELEMETRY
@@ -271,5 +276,12 @@ public class GoldContourPipelineTest extends LinearOpMode {
         }
 
         vision.disable();
+    }
+
+    private void resetContourBounds() {
+        contourYMin = -1;
+        contourYMax = -1;
+        contourXMin = -1;
+        contourXMax = -1;
     }
 }
