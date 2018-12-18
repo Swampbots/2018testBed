@@ -280,7 +280,7 @@ public class GoldContourPipelineTest extends LinearOpMode {
                             else contourPlacement = ContourPlacement.RIGHT;
 
                             telemetry.addData("Contour" + Integer.toString(i),
-                                    String.format(Locale.getDefault(), "(%d, %s)", contourWidthMid, contourPlacement.toString()));
+                                    String.format(Locale.getDefault(), "(%d, %s)", contourHeightMid, contourPlacement.toString()));
                         }
                     }
                 }
