@@ -235,6 +235,12 @@ public class GoldContourPipelineTest extends LinearOpMode {
             int contourWidthMid;
             ContourPlacement contourPlacement;
 
+            // Tally of contourPlacements for all visible contours this cycle
+            // (Set all to 0 so they start over each cycle)
+            int leftTally = 0;
+            int centerTally = 0;
+            int rightTally = 0;
+
 
             // Reset contours on right_stick_button press
 //            if(gamepad1.right_stick_button) resetContourBounds();
@@ -275,12 +281,21 @@ public class GoldContourPipelineTest extends LinearOpMode {
 //                            if(contourYMax == -1 || contourYMax < contourHeightMid) contourYMax = contourHeightMid; // Y, height
 //                            if(contourXMax == -1 || contourXMax < contourWidthMid) contourXMax = contourWidthMid;   // X, width
 
-                            if(contourHeightMid < CTR_LEFT) contourPlacement = ContourPlacement.LEFT;
-                            else if(contourHeightMid < CTR_RIGHT) contourPlacement = ContourPlacement.CENTER;
-                            else contourPlacement = ContourPlacement.RIGHT;
+                            if(contourHeightMid < CTR_LEFT) {
+                                contourPlacement = ContourPlacement.LEFT;
+                                leftTally ++;
+                            }
+                            else if(contourHeightMid < CTR_RIGHT) {
+                                contourPlacement = ContourPlacement.CENTER;
+                                centerTally ++;
+                            }
+                            else {
+                                contourPlacement = ContourPlacement.RIGHT;
+                                rightTally ++;
+                            }
 
-                            telemetry.addData("Contour" + Integer.toString(i),
-                                    String.format(Locale.getDefault(), "(%d, %s)", contourHeightMid, contourPlacement.toString()));
+//                            telemetry.addData("Contour" + Integer.toString(i),
+//                                    String.format(Locale.getDefault(), "(%d, %s)", contourHeightMid, contourPlacement.toString()));
                         }
                     }
                 }
@@ -288,7 +303,11 @@ public class GoldContourPipelineTest extends LinearOpMode {
                 e.printStackTrace();
                 telemetry.addData("Exception", e.getMessage());
             }
-
+            telemetry.addData("Left tally", leftTally);
+            telemetry.addData("Center tally", centerTally);
+            telemetry.addData("Right tally", rightTally);
+            telemetry.addLine();
+            
             telemetry.update();
         }
 
