@@ -262,63 +262,63 @@ public class GoldContourPipelineTest extends LinearOpMode {
 
 
 
-//            // SAT MINIMUM
-//            if(gamepad1.dpad_left && dpLeftReady) {
-//                if (hsvSat[0] > HSV_MIN)   hsvSat[0] -= THRESHOLD_STEP;
-//                else                        hsvSat[0] = HSV_MIN;
-//                dpLeftSnapshot = getRuntime();
-//            }
-//
-//            if(gamepad1.dpad_right && dpRightReady) {
-//                if(hsvSat[0] < hsvSat[1])  hsvSat[0] += THRESHOLD_STEP;
-//                else                        hsvSat[0] = hsvSat[1];
-//                dpRightSnapshot = getRuntime();
-//            }
-//
-//
-//            // SAT MAXIMUM
-//            if(gamepad1.b && bReady) {
-//                if (hsvSat[1] < HSV_MAX)   hsvSat[1] += THRESHOLD_STEP;
-//                else                        hsvSat[1] = HSV_MAX;
-//                bSnapshot = getRuntime();
-//            }
-//
-//            if(gamepad1.x && xReady) {
-//                if(hsvSat[1] > hsvSat[0])  hsvSat[1] -= THRESHOLD_STEP;
-//                else                        hsvSat[1] = hsvSat[0];
-//                xSnapshot = getRuntime();
-//            }
-//
-//
-//
-//
-//            // VAL MINIMUM
-//            if(gamepad1.left_trigger > TRIGGER_THRESHOLD && ltReady) {
-//                if (hsvVal[0] > HSV_MIN)   hsvVal[0] -= THRESHOLD_STEP;
-//                else                        hsvVal[0] = HSV_MIN;
-//                ltSnapshot = getRuntime();
-//            }
-//
-//            if(gamepad1.left_bumper && lbReady) {
-//                if(hsvVal[0] < hsvVal[1])  hsvVal[0] += THRESHOLD_STEP;
-//                else                        hsvVal[0] = hsvVal[1];
-//                lbSnapshot = getRuntime();
-//            }
-//
-//
-//
-//            // VAL MAXIMUM
-//            if(gamepad1.right_trigger > TRIGGER_THRESHOLD && rtReady) {
-//                if (hsvVal[1] > hsvVal[0])  hsvVal[1] -= THRESHOLD_STEP;
-//                else                        hsvVal[1] = hsvVal[0];
-//                rtSnapshot = getRuntime();
-//            }
-//
-//            if(gamepad1.right_bumper && rbReady) {
-//                if(hsvVal[1] < HSV_MAX)     hsvVal[1] += THRESHOLD_STEP;
-//                else                        hsvVal[1] = HSV_MAX;
-//                rbSnapshot = getRuntime();
-//            }
+            // SAT MINIMUM
+            if(gamepad1.dpad_left && dpLeft.ready(runtime)) {
+                if (hsvSat[0] > HSV_MIN)   hsvSat[0] -= THRESHOLD_STEP;
+                else                        hsvSat[0] = HSV_MIN;
+                dpLeft.updateSnapshot(runtime);
+            }
+
+            if(gamepad1.dpad_right && dpRight.ready(runtime)) {
+                if(hsvSat[0] < hsvSat[1])  hsvSat[0] += THRESHOLD_STEP;
+                else                        hsvSat[0] = hsvSat[1];
+                dpRight.updateSnapshot(runtime);
+            }
+
+
+            // SAT MAXIMUM
+            if(gamepad1.b && b.ready(runtime)) {
+                if (hsvSat[1] < HSV_MAX)   hsvSat[1] += THRESHOLD_STEP;
+                else                        hsvSat[1] = HSV_MAX;
+                b.updateSnapshot(runtime);
+            }
+
+            if(gamepad1.x && x.ready(runtime)) {
+                if(hsvSat[1] > hsvSat[0])  hsvSat[1] -= THRESHOLD_STEP;
+                else                        hsvSat[1] = hsvSat[0];
+                x.updateSnapshot(runtime);
+            }
+
+
+
+
+            // VAL MINIMUM
+            if(gamepad1.left_trigger > TRIGGER_THRESHOLD && lt.ready(runtime)) {
+                if (hsvVal[0] > HSV_MIN)   hsvVal[0] -= THRESHOLD_STEP;
+                else                        hsvVal[0] = HSV_MIN;
+                lt.updateSnapshot(runtime);
+            }
+
+            if(gamepad1.left_bumper && lb.ready(runtime)) {
+                if(hsvVal[0] < hsvVal[1])  hsvVal[0] += THRESHOLD_STEP;
+                else                        hsvVal[0] = hsvVal[1];
+                lb.updateSnapshot(runtime);
+            }
+
+
+
+            // VAL MAXIMUM
+            if(gamepad1.right_trigger > TRIGGER_THRESHOLD && rt.ready(runtime)) {
+                if (hsvVal[1] > hsvVal[0])  hsvVal[1] -= THRESHOLD_STEP;
+                else                        hsvVal[1] = hsvVal[0];
+                rt.updateSnapshot(runtime);
+            }
+
+            if(gamepad1.right_bumper && rb.ready(runtime)) {
+                if(hsvVal[1] < HSV_MAX)     hsvVal[1] += THRESHOLD_STEP;
+                else                        hsvVal[1] = HSV_MAX;
+                rb.updateSnapshot(runtime);
+            }
 
             //--------------------------------------------------------------------------------------
             // END HSV THRESHOLD CONTROLS
